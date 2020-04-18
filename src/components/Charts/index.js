@@ -20,23 +20,23 @@ export default function Charts({track}) {
 
   const data = [
     {
-      name: 'Mortos',
-      covid: track.deaths,
-      color: '#F00',
+      name: 'Casos Ativos',
+      covid: track.active,
+      color: '#4CB1FB',
       legendFontColor: '#7F7F7F',
       legendFontSize: 15,
     },
     {
-      name: 'Curados',
+      name: 'Recuperados',
       covid: track.recovered,
       color: '#4DD97B',
       legendFontColor: '#7F7F7F',
       legendFontSize: 15,
     },
     {
-      name: 'Ativos',
-      covid: track.active,
-      color: '#4CB1FB',
+      name: 'Mortos',
+      covid: track.deaths,
+      color: '#F00',
       legendFontColor: '#7F7F7F',
       legendFontSize: 15,
     },
@@ -50,7 +50,6 @@ export default function Charts({track}) {
       chartConfig={chartConfig}
       accessor="covid"
       backgroundColor="transparent"
-      absolute
       style={styles.barchat}
     />
   );

@@ -26,7 +26,7 @@ import Charts from '../../components/Charts';
 import bg from '../../assets/background.png';
 
 
-export default function Main({color, title, track}) {
+export default function Main({}) {
   const [loading, setLoading] = useState(true);
   const [tracker, setTracker] = useState([]);
 
@@ -65,7 +65,7 @@ export default function Main({color, title, track}) {
             <View style={styles.content}>
               <Box track={tracker.cases} title="Casos" color="#FFB259" />
               <Box track={tracker.deaths} title="Mortos" color="#FF5959" />
-              <Box track={tracker.recovered} title="Curados" color="#4DD97B" />
+              <Box track={tracker.recovered} title="Recuperados" color="#4DD97B" />
               <Box track={tracker.active} title="Ativos" color="#4CB1FB" />
               <Charts track={tracker} />
             </View>

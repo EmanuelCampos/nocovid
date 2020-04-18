@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
@@ -5,10 +7,19 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 export default function SelectDate() {
   const [active, setActive] = useState(true);
+  const [today, setToday] = useState([]);
 
   const styles = getActive({active});
 
-  function handleActiveMenu(e) {}
+  async function handleActiveMenu(e) {
+    const response = await axios.get(
+      'https://corona.lmao.ninja/v2/countries/brazil',
+    );
+
+    const {todayCases, todayDeaths} = response.data;
+
+    setToday(todayCases, todayDeaths);
+  }
 
   return (
     <View style={styles.container}>
