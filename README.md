@@ -8,7 +8,7 @@ yarn install && react-native start
 
 ## Imagens
 
-![NoCovid](assets/printapp.jpeg)
+![NoCovid](assets/nocovid.jpg)
 
 ## Como Utilizar
 
