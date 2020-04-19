@@ -20,7 +20,10 @@ import 'intl/locale-data/jsonp/pt';
 
 import Header from '../../components/Header';
 import SelectDate from '../../components/SelectDate';
+
 import Box from '../../components/Box';
+import BoxText from '../../components/BoxText';
+
 import Loading from '../../components/Loading';
 import Charts from '../../components/Charts';
 
@@ -66,13 +69,13 @@ export default function Main({}) {
             </View>
             <View style={styles.content}>
               <Box track={tracker.cases} title="Casos" color="#FFB259" />
-              <Box track={tracker.deaths} title="Mortos" color="#FF5959" />
+              <Box track={tracker.deaths} title="Óbitos" color="#FF5959" />
               <Box track={tracker.recovered} title="Recuperados" color="#4DD97B" />
               <Box track={tracker.active} title="Ativos" color="#4CB1FB" />
               <Charts track={tracker} />
 
-              <TouchableOpacity style={{flex: 1, height: 56}}>
-              <Box track="DISQUE 136" title="Precisando de Ajuda ?" color="#404040"/>
+              <TouchableOpacity style={{flex: 1, height: 56, paddingTop: 24}}>
+              <BoxText text="DISQUE 136" title="Precisando de Ajuda ?" color="#404040"/>
               </TouchableOpacity>
             </View>
           </SafeAreaView>

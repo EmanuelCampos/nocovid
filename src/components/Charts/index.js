@@ -34,7 +34,7 @@ export default function Charts({track}) {
       legendFontSize: 15,
     },
     {
-      name: 'Mortos',
+      name: 'Óbitos',
       covid: track.deaths,
       color: '#F00',
       legendFontColor: '#7F7F7F',
