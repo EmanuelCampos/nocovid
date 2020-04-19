@@ -68,7 +68,7 @@ export default function Main({}) {
               <Box track={tracker.recovered} title="Recuperados" color="#4DD97B" />
               <Box track={tracker.active} title="Ativos" color="#4CB1FB" />
               <Charts track={tracker} />
-              <Box style={{ paddingTop: 32}}track="3347-5732" title="Precisando de Ajuda ?" color="#404040"/>
+              <Box style={{ paddingTop: 32}} track="136" title="Precisando de Ajuda ?" color="#404040"/>
             </View>
           </SafeAreaView>
         )}
