@@ -50,6 +50,7 @@ export default function Charts({track}) {
       chartConfig={chartConfig}
       accessor="covid"
       backgroundColor="transparent"
+      paddingLeft="-10"
       style={styles.barchat}
     />
   );
@@ -58,10 +59,11 @@ export default function Charts({track}) {
 const styles = StyleSheet.create({
   barchat: {
     color: '#FFF',
-    marginTop: 80,
+    marginTop: 32,
     paddingRight: 60,
     marginHorizontal: 30,
     paddingTop: 65,
     justifyContent: 'center',
+    marginBottom: 50,
   },
 });
