@@ -6,21 +6,8 @@ import {View} from 'react-native';
 import Box from '../Box';
 // import { Container } from './styles';
 
-export default function BoxList({track}) {
+export default function BoxEvery({track}) {
   const [loading, setLoading] = useState(true);
-  // const [tracker, setTracker] = useState([]);
-
-  // useEffect(() => {
-  //   async function getTracker() {
-  //     const response = await axios.get(
-  //       'https://corona.lmao.ninja/v2/countries/brazil',
-  //     );
-  //     setTracker(response.data);
-  //     setLoading(false);
-  //   }
-
-  //   getTracker();
-  // }, []);
 
   return (
     <>

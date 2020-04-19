@@ -56,7 +56,7 @@ const getStyles = ({color}) => {
     },
 
     boxDescription: {
-      fontSize: 24,
+      fontSize: 16,
       color: '#FFF',
 
       fontWeight: 'bold',
