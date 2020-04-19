@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import React, {useState} from 'react';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 import 'intl';
 import 'intl/locale-data/jsonp/pt';
@@ -10,23 +10,21 @@ export default function Box({color, title, track}) {
   const styles = getStyles({color});
 
   return (
-    <View style={styles.boxAffected}>
-      <Text style={styles.boxText}>{title}</Text>
-      <Text style={styles.boxDescription}>
-        {Intl.NumberFormat('pt-BR', {maximumSignificantDigits: 8}).format(
-          track,
-        )}
-      </Text>
-    </View>
+    <>
+      <TouchableOpacity style={styles.boxAffected}>
+        <Text style={styles.boxText}>{title}</Text>
+        <Text style={styles.boxDescription}>
+          {Intl.NumberFormat('pt-BR', {maximumSignificantDigits: 8}).format(
+            track,
+          )}
+        </Text>
+      </TouchableOpacity>
+    </>
   );
 }
 
 const getStyles = ({color}) => {
   return StyleSheet.create({
-    backgroundImage: {
-      flex: 1,
-      alignSelf: 'stretch',
-    },
     boxAffected: {
       backgroundColor: color,
       height: 97,

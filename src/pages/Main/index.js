@@ -9,14 +9,11 @@ import {
   SafeAreaView,
   StatusBar,
   TouchableOpacity,
-  ScrollView
-
+  ScrollView,
 } from 'react-native';
-
 
 import 'intl';
 import 'intl/locale-data/jsonp/pt';
-
 
 import Header from '../../components/Header';
 
@@ -28,15 +25,13 @@ import Loading from '../../components/Loading';
 import ChartsEveryDay from '../../components/ChartsEveryDay';
 import ChartsToday from '../../components/ChartsToday';
 
-import bg from '../../assets/background.png';
-
+import styles from './styles';
 
 export default function Main({}) {
-
   const [tracker, setTracker] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const [btnSelect, setBtnSelected ] = useState(1)
+  const [btnSelect, setBtnSelected] = useState(1);
 
   const [moment, setMoment] = useState('everyday');
 
@@ -49,136 +44,74 @@ export default function Main({}) {
       setLoading(false);
     }
 
-    getTracker()
-  }, [])
-
+    getTracker();
+  }, []);
 
   const options = {
-    day: 'numeric', month: 'numeric', year: 'numeric',
-    hour: 'numeric', minute: 'numeric', second: 'numeric',
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
     hour12: false,
   };
 
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor="#1F93F5" />
-      <ScrollView vertical contentContainerStyle={{ flex: 1 }}>
-      <ImageBackground
-        style={styles.backgroundImage}
-        >
+      <ScrollView vertical style={styles.scrollview}>
+        <ImageBackground style={styles.backgroundImage} />
+        <Header />
         {loading ? (
-          <Loading></Loading>
+          <Loading />
         ) : (
-          <SafeAreaView style={styles.container}>
-            <Header />
+          <SafeAreaView style={([styles.container], {zIndex: 0})}>
             <View style={styles.selectContainer}>
               <View style={styles.selectBar}>
                 <TouchableOpacity
-                onPress={() => setMoment('everyday')}
-                style={(moment === 'everyday') ? styles.selectButton : styles.selectButtonTwo}>
+                  onPress={() => setMoment('everyday')}
+                  style={
+                    moment === 'everyday'
+                      ? styles.selectButton
+                      : styles.selectButtonTwo
+                  }>
                   <Text style={styles.selectText}>Até o momento</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
+                </TouchableOpacity>
+                <TouchableOpacity
                   onPress={() => setMoment('today')}
-                  style={(moment === 'today') ? styles.selectButton : styles.selectButtonTwo}>
+                  style={
+                    moment === 'today'
+                      ? styles.selectButton
+                      : styles.selectButtonTwo
+                  }>
                   <Text style={styles.selectText}>Hoje</Text>
                 </TouchableOpacity>
               </View>
             </View>
             <View style={styles.descriptionBox}>
-            <Text style={styles.casesText}>Casos no <Text style={{fontWeight: 'bold'}}>Brasil</Text>
-            </Text>
-            <Text style={styles.updatedText}>Última atualização : {Intl.DateTimeFormat('pt-BR', options).format(tracker.updated)}</Text>
+              <Text style={styles.casesText}>
+                Casos no <Text style={{fontWeight: 'bold'}}>Brasil</Text>
+              </Text>
+              <Text style={styles.updatedText}>
+                Última atualização :{' '}
+                {Intl.DateTimeFormat('pt-BR', options).format(tracker.updated)}
+              </Text>
             </View>
             <View style={styles.content}>
               {moment === 'everyday' && <BoxEvery track={tracker} />}
               {moment === 'today' && <BoxToday track={tracker} />}
               {moment === 'everyday' && <ChartsEveryDay track={tracker} />}
               {moment === 'today' && <ChartsToday track={tracker} />}
-              <BoxText text="DISQUE 136" title="Precisando de Ajuda ?" color="#404040"/>
+              <BoxText
+                text="DISQUE 136"
+                title="Precisando de Ajuda ?"
+                color="#404040"
+              />
             </View>
           </SafeAreaView>
         )}
-      </ImageBackground>
-        </ScrollView>
-      </>
+      </ScrollView>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  backgroundImage: {
-    backgroundColor: "#1F93F5",
-    height: 390,
-  },
-  descriptionBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop: 36,
-  },
-  casesText: {
-    color: '#FFF',
-    paddingHorizontal: 30,
-
-  },
-  updatedText: {
-    color: '#FFF',
-    paddingHorizontal: 35,
-
-    fontSize: 7,
-
-  },
-  content: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    paddingHorizontal: 25,
-    marginTop: 8,
-  },
-  selectContainer: {
-  justifyContent: 'center',
-  alignItems:'center'
-  },
-  selectBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop: 8,
-    backgroundColor: 'rgba(255,255,255,0.2)',
-    borderRadius: 40,
-    width: 350,
-    height: 54,
-    paddingHorizontal: 8,
-  },
-  selectButton: {
-    flexGrow: 1,
-    flexShrink: 1,
-    backgroundColor: '#FFF',
-    height: 40,
-    borderRadius: 40,
-    width: 175,
-    marginLeft: 15,
-
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  selectButtonTwo: {
-    flexGrow: 1,
-    flexShrink: 1,
-    height: 40,
-    borderRadius: 40,
-    width: 150,
-    marginLeft: 15,
-
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  selectText: {
-    color: '#2879C9',
-  },
-});
