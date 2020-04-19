@@ -1,23 +1,24 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 import 'intl';
-import 'intl/locale-data/jsonp/pt';
+import 'intl/locale-data/jsonp/en';
 
 // import { Container } from './styles';
 
-export default function Box({color, title, track}) {
+export default function Box({color, title, track, action}) {
   const styles = getStyles({color});
 
   return (
-    <View style={styles.boxAffected}>
+    <TouchableOpacity onPress={action} style={styles.boxAffected}>
       <Text style={styles.boxText}>{title}</Text>
       <Text style={styles.boxDescription}>
-        {Intl.NumberFormat('pt-BR', {maximumSignificantDigits: 8}).format(
+        {track}
+        {/* {Intl.NumberFormat('en-US', {maximumSignificantDigits: 3}).format(
           track,
-        )}
+        )} */}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
