@@ -24,6 +24,10 @@ export default function Box({color, title, track}) {
 
 const getStyles = ({color}) => {
   return StyleSheet.create({
+    backgroundImage: {
+      flex: 1,
+      alignSelf: 'stretch',
+    },
     boxAffected: {
       backgroundColor: color,
       height: 97,

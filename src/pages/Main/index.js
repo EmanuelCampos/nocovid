@@ -9,6 +9,7 @@ import {
   ImageBackground,
   SafeAreaView,
   StatusBar,
+  TouchableOpacity,
   Suspense,
 } from 'react-native';
 
@@ -24,6 +25,7 @@ import Loading from '../../components/Loading';
 import Charts from '../../components/Charts';
 
 import bg from '../../assets/background.png';
+import headset from '../../assets/headset.svg';
 
 
 export default function Main({}) {
@@ -68,7 +70,10 @@ export default function Main({}) {
               <Box track={tracker.recovered} title="Recuperados" color="#4DD97B" />
               <Box track={tracker.active} title="Ativos" color="#4CB1FB" />
               <Charts track={tracker} />
-              <Box style={{ paddingTop: 32}} track="136" title="Precisando de Ajuda ?" color="#404040"/>
+
+              <TouchableOpacity style={{flex: 1, height: 56}}>
+              <Box track="DISQUE 136" title="Precisando de Ajuda ?" color="#404040"/>
+              </TouchableOpacity>
             </View>
           </SafeAreaView>
         )}
