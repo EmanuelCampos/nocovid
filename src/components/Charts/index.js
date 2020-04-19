@@ -59,10 +59,10 @@ export default function Charts({track}) {
 const styles = StyleSheet.create({
   barchat: {
     color: '#FFF',
-    marginTop: 32,
+    // marginTop: 32,
     paddingRight: 60,
     marginHorizontal: 30,
-    paddingTop: 65,
+    // paddingTop: 65,
     justifyContent: 'center',
     marginBottom: 50,
   },
