@@ -22,6 +22,7 @@ import Header from '../../components/Header';
 import SelectDate from '../../components/SelectDate';
 
 import Box from '../../components/Box';
+import BoxList from '../../components/BoxList';
 import BoxText from '../../components/BoxText';
 
 import Loading from '../../components/Loading';
@@ -32,8 +33,9 @@ import headset from '../../assets/headset.svg';
 
 
 export default function Main({}) {
-  const [loading, setLoading] = useState(true);
+
   const [tracker, setTracker] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getTracker() {
@@ -44,8 +46,15 @@ export default function Main({}) {
       setLoading(false);
     }
 
-    getTracker();
-  }, []);
+    getTracker()
+  }, [])
+
+
+  const options = {
+    day: 'numeric', month: 'numeric', year: 'numeric',
+    hour: 'numeric', minute: 'numeric', second: 'numeric',
+    hour12: false,
+  };
 
   return (
     <>
@@ -64,19 +73,13 @@ export default function Main({}) {
             <Text style={styles.casesText}>
               Casos no <Text style={{fontWeight: 'bold'}}>Brasil</Text>
             </Text>
-            <Text style={styles.updatedText}>Ultima atualização : {Intl.DateTimeFormat('pt-BR').format(tracker.updated)}
+            <Text style={styles.updatedText}>Última atualização : {Intl.DateTimeFormat('pt-BR', options).format(tracker.updated)}
             </Text>
             </View>
             <View style={styles.content}>
-              <Box track={tracker.cases} title="Casos" color="#FFB259" />
-              <Box track={tracker.deaths} title="Óbitos" color="#FF5959" />
-              <Box track={tracker.recovered} title="Recuperados" color="#4DD97B" />
-              <Box track={tracker.active} title="Ativos" color="#4CB1FB" />
+              <BoxList track={tracker} />
               <Charts track={tracker} />
-
-              <TouchableOpacity style={{flex: 1, height: 56, paddingTop: 24}}>
               <BoxText text="DISQUE 136" title="Precisando de Ajuda ?" color="#404040"/>
-              </TouchableOpacity>
             </View>
           </SafeAreaView>
         )}
@@ -98,21 +101,22 @@ const styles = StyleSheet.create({
   descriptionBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginTop: 36,
   },
 
   casesText: {
     color: '#FFF',
     paddingHorizontal: 30,
-    marginTop: 16,
 
   },
 
   updatedText: {
     color: '#FFF',
     paddingHorizontal: 35,
-    marginTop: 16,
-    fontSize: 8,
+
+    fontSize: 7,
+
   },
 
   content: {

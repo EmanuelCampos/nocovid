@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 import 'intl';
 import 'intl/locale-data/jsonp/pt';
@@ -10,10 +10,10 @@ export default function BoxText({color, title, text}) {
   const styles = getStyles({color});
 
   return (
-    <View style={styles.boxAffected}>
+    <TouchableOpacity style={styles.boxClick}>
       <Text style={styles.boxText}>{title}</Text>
       <Text style={styles.boxDescription}>{text}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -23,7 +23,7 @@ const getStyles = ({color}) => {
       flex: 1,
       alignSelf: 'stretch',
     },
-    boxAffected: {
+    boxClick: {
       backgroundColor: color,
       height: 97,
 
@@ -46,6 +46,7 @@ const getStyles = ({color}) => {
 
       elevation: 3,
 
+      marginTop: 24,
       minWidth: 147,
     },
 
