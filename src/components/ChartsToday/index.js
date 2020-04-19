@@ -5,7 +5,7 @@ import {Dimensions} from 'react-native';
 
 // import { Container } from './styles';
 
-export default function Charts({track}) {
+export default function ChartsToday({track}) {
   const screenWidth = Dimensions.get('window').width;
 
   const chartConfig = {
@@ -20,22 +20,15 @@ export default function Charts({track}) {
 
   const data = [
     {
-      name: 'Casos Ativos',
-      covid: track.active,
-      color: '#4CB1FB',
-      legendFontColor: '#7F7F7F',
-      legendFontSize: 15,
-    },
-    {
-      name: 'Recuperados',
-      covid: track.recovered,
-      color: '#4DD97B',
+      name: 'Casos',
+      covid: track.todayCases,
+      color: '#FFB259',
       legendFontColor: '#7F7F7F',
       legendFontSize: 15,
     },
     {
       name: 'Óbitos',
-      covid: track.deaths,
+      covid: track.todayDeaths,
       color: '#F00',
       legendFontColor: '#7F7F7F',
       legendFontSize: 15,

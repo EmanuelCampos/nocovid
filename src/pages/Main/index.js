@@ -25,7 +25,8 @@ import BoxToday from '../../components/BoxToday';
 import BoxText from '../../components/BoxText';
 
 import Loading from '../../components/Loading';
-import Charts from '../../components/Charts';
+import ChartsEveryDay from '../../components/ChartsEveryDay';
+import ChartsToday from '../../components/ChartsToday';
 
 import bg from '../../assets/background.png';
 
@@ -37,7 +38,7 @@ export default function Main({}) {
 
   const [btnSelect, setBtnSelected ] = useState(1)
 
-  const [moment, setMoment] = useState('today');
+  const [moment, setMoment] = useState('everyday');
 
   useEffect(() => {
     async function getTracker() {
@@ -92,9 +93,10 @@ export default function Main({}) {
             </Text>
             </View>
             <View style={styles.content}>
-              {moment === 'everyday' && <BoxEvery track={tracker} /> }
-              {moment === 'today' && <BoxToday track={tracker} /> }
-              <Charts track={tracker} />
+              {moment === 'everyday' && <BoxEvery track={tracker} />}
+              {moment === 'today' && <BoxToday track={tracker} />}
+              {moment === 'everyday' && <ChartsEveryDay track={tracker} />}
+              {moment === 'today' && <ChartsToday track={tracker} />}
               <BoxText text="DISQUE 136" title="Precisando de Ajuda ?" color="#404040"/>
             </View>
           </SafeAreaView>
