@@ -6,10 +6,6 @@ yarn install && react-native start
 ```
 <!-- CONTACT -->
 
-## Imagens
-
-![NoCovid](assets/nocovid.jpg)
-
 ## Como Utilizar
 
 Por favor, na hora da criação da feature crie uma branch com o nome de feature/nome da feature.
