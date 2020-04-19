@@ -5,12 +5,12 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
   ImageBackground,
   SafeAreaView,
   StatusBar,
   TouchableOpacity,
-  Suspense,
+  ScrollView
+
 } from 'react-native';
 
 
@@ -62,9 +62,9 @@ export default function Main({}) {
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor="#1F93F5" />
+      <ScrollView vertical contentContainerStyle={{ flex: 1 }}>
       <ImageBackground
         style={styles.backgroundImage}
-        source={bg}
         >
         {loading ? (
           <Loading></Loading>
@@ -86,11 +86,9 @@ export default function Main({}) {
               </View>
             </View>
             <View style={styles.descriptionBox}>
-            <Text style={styles.casesText}>
-              Casos no <Text style={{fontWeight: 'bold'}}>Brasil</Text>
+            <Text style={styles.casesText}>Casos no <Text style={{fontWeight: 'bold'}}>Brasil</Text>
             </Text>
-            <Text style={styles.updatedText}>Última atualização : {Intl.DateTimeFormat('pt-BR', options).format(tracker.updated)}
-            </Text>
+            <Text style={styles.updatedText}>Última atualização : {Intl.DateTimeFormat('pt-BR', options).format(tracker.updated)}</Text>
             </View>
             <View style={styles.content}>
               {moment === 'everyday' && <BoxEvery track={tracker} />}
@@ -102,7 +100,8 @@ export default function Main({}) {
           </SafeAreaView>
         )}
       </ImageBackground>
-    </>
+        </ScrollView>
+      </>
   );
 }
 
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     backgroundColor: "#1F93F5",
-    height: '50%'
+    height: 390,
   },
   descriptionBox: {
     flexDirection: 'row',

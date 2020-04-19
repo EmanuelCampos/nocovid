@@ -44,6 +44,7 @@ export default function ChartsToday({track}) {
       accessor="covid"
       backgroundColor="transparent"
       paddingLeft="-10"
+      absolute
       style={styles.barchat}
     />
   );
