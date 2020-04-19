@@ -35,6 +35,8 @@ export default function Main({}) {
   const [tracker, setTracker] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [btnSelect, setBtnSelected ] = useState(1)
+
   const [moment, setMoment] = useState('today');
 
   useEffect(() => {
@@ -70,12 +72,14 @@ export default function Main({}) {
             <Header />
             <View style={styles.selectContainer}>
               <View style={styles.selectBar}>
-                <TouchableOpacity onPress={() => setMoment('everyday')} style={styles.selectButton}>
+                <TouchableOpacity
+                onPress={() => setMoment('everyday')}
+                style={(moment === 'everyday') ? styles.selectButton : styles.selectButtonTwo}>
                   <Text style={styles.selectText}>Até o momento</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                   onPress={() => setMoment('today')}
-                  style={styles.selectButtonTwo}>
+                  style={(moment === 'today') ? styles.selectButton : styles.selectButtonTwo}>
                   <Text style={styles.selectText}>Hoje</Text>
                 </TouchableOpacity>
               </View>
@@ -148,6 +152,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     width: 350,
     height: 54,
+    paddingHorizontal: 8,
   },
   selectButton: {
     flexGrow: 1,
