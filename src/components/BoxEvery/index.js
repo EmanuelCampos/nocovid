@@ -7,8 +7,6 @@ import Box from '../Box';
 // import { Container } from './styles';
 
 export default function BoxEvery({track}) {
-  const [loading, setLoading] = useState(true);
-
   return (
     <>
       <Box track={track.cases} title="Casos" color="#FFB259" />
