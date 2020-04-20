@@ -22,8 +22,7 @@ export default function ChartsToday({track}) {
     {
       name: 'Casos',
       covid: track.todayCases,
-      color: '#FFB259',
-      legendFontColor: '#7F7F7F',
+      color: 'transparent',
       legendFontSize: 15,
     },
     {
@@ -40,11 +39,11 @@ export default function ChartsToday({track}) {
       data={data}
       width={screenWidth}
       height={120}
+      absolute
       chartConfig={chartConfig}
       accessor="covid"
       backgroundColor="transparent"
       paddingLeft="-10"
-      absolute
       style={styles.barchat}
     />
   );

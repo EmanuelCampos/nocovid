@@ -15,6 +15,7 @@ import {
 import 'intl';
 import 'intl/locale-data/jsonp/pt';
 
+// import bg from '../../assets/background.png'
 import Header from '../../components/Header';
 
 import BoxEvery from '../../components/BoxEvery';
@@ -102,7 +103,7 @@ export default function Main({}) {
               {moment === 'everyday' && <BoxEvery track={tracker} />}
               {moment === 'today' && <BoxToday track={tracker} />}
               {moment === 'everyday' && <ChartsEveryDay track={tracker} />}
-              {moment === 'today' && <ChartsToday track={tracker} />}
+              {moment === 'today' && <></>}
               <BoxText
                 text="DISQUE 136"
                 title="Precisando de Ajuda ?"
